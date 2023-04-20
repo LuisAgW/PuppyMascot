@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Puppy Mascot</string>
+    <string name="AboutMe">
+        Hola!! Mi nombre es LuisAgW soy un desarrollador Android y desarrollador web con una gran pasión por la tecnología, el desarrollo de software y los retos tecnológicos.
+
+        Ganador de dos hackatones y graduado de una prestigiosa universidad, disfruto del ejercicio y mantenerme en forma.
+
+        Siempre busco oportunidades para seguir aprendiendo y creciendo en mi carrera, estoy comprometido en hacer del mundo un lugar mejor a través de la tecnología.</string>
 </resources>

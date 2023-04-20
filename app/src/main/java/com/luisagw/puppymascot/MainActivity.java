@@ -1,9 +1,13 @@
 package com.luisagw.puppymascot;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,11 +37,33 @@ public class MainActivity extends AppCompatActivity {
         inicializaAdaptador();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_opciones, menu);
+        return true;
+    }
+    /*funciones para crear un menú en la barra principal*/
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent intent;
+
+        switch (item.getItemId()){
+            case R.id.mContacto:
+                intent = new Intent(this,ActivityAbout.class);
+                startActivity(intent);
+                break;
+            case R.id.mAbout:
+                intent = new Intent(this,ActivityContacto.class);
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public void secondActivity(View v){
         Intent intent = new Intent(this, DetalleMascota.class);
         startActivity(intent);
     }
-
     public MascotaAdapter adaptador;
     private void inicializaAdaptador(){
         adaptador = new MascotaAdapter(contactos, this);
@@ -53,6 +79,5 @@ public class MainActivity extends AppCompatActivity {
         contactos.add(new Mascota("Spike","5",R.drawable.pelusa));
         contactos.add(new Mascota("Tom","3",R.drawable.spoke));
     }
-
 
 }

@@ -12,6 +12,12 @@
         android:theme="@style/Theme.PuppyMascot"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityContacto"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityAbout"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -20,12 +26,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetalleMascota"
+        <activity
+            android:name=".DetalleMascota"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="andoid .support.PARENT_ACTIVITY"
-                android:value=".MainActivity"
-                ></meta-data>
+                android:value=".MainActivity" />
         </activity>
     </application>
 
