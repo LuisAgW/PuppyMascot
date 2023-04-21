@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
+
+import com.luisagw.puppymascot.adapter.MascotaAdapter;
+import com.luisagw.puppymascot.pojo.Mascota;
 
 import java.util.ArrayList;
 

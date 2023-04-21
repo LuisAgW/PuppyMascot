@@ -3,38 +3,55 @@ package com.luisagw.puppymascot;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 
-import java.util.ArrayList;
+import com.google.android.material.tabs.TabLayout;
+import com.luisagw.puppymascot.adapter.ViewPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Mascota> contactos;
-    private RecyclerView listaMascotas;
+
+
+    TabLayout tabLayout;
+    ViewPager2 viewPager2;
+    ViewPagerAdapter viewPagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        tabLayout = findViewById(R.id.tab_layout);
+        viewPager2 = findViewById(R.id.view_pager);
+        viewPagerAdapter = new ViewPagerAdapter(this);
+        viewPager2.setAdapter(viewPagerAdapter);
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager2.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
         Toolbar miActionBar = (Toolbar) findViewById(R.id.actionBar);
         setSupportActionBar(miActionBar);
 
-        listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
-
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-
-        listaMascotas.setLayoutManager(llm);
-        inicializaListaMascotas();
-        inicializaAdaptador();
     }
 
     @Override
@@ -63,21 +80,6 @@ public class MainActivity extends AppCompatActivity {
     public void secondActivity(View v){
         Intent intent = new Intent(this, DetalleMascota.class);
         startActivity(intent);
-    }
-    public MascotaAdapter adaptador;
-    private void inicializaAdaptador(){
-        adaptador = new MascotaAdapter(contactos, this);
-        listaMascotas.setAdapter(adaptador);
-    }
-    public void inicializaListaMascotas(){
-
-        contactos = new ArrayList<Mascota>();
-
-        contactos.add(new Mascota("Waffel","6",R.drawable.ik));
-        contactos.add(new Mascota("Malvavisco","3",R.drawable.poky));
-        contactos.add(new Mascota("Cheto","2",R.drawable.pochi));
-        contactos.add(new Mascota("Spike","5",R.drawable.pelusa));
-        contactos.add(new Mascota("Tom","3",R.drawable.spoke));
     }
 
 }

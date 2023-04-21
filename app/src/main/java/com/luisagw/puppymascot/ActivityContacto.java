@@ -1,6 +1,7 @@
 package com.luisagw.puppymascot;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -18,6 +19,9 @@ public class ActivityContacto extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacto);
+
+        Toolbar miActionBar = (Toolbar) findViewById(R.id.actionBar);
+        setSupportActionBar(miActionBar);
 
         botonEnviar = findViewById(R.id.button);
         editTextNombre = findViewById(R.id.editTextTextPersonName2);

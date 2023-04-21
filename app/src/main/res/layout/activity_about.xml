@@ -7,6 +7,7 @@
     tools:context=".ActivityAbout"
     android:orientation="vertical">
 
+    <include android:id="@+id/actionBar" layout="@layout/action_bar" />
 
     <TextView
         android:id="@+id/textView"

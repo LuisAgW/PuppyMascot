@@ -7,6 +7,8 @@
     android:orientation="vertical"
     tools:context=".ActivityContacto">
 
+    <include android:id="@+id/actionBar" layout="@layout/action_bar" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
